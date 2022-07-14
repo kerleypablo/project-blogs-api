@@ -21,24 +21,16 @@ module.exports = {
         onDelete: 'CASCADE',
         field: 'userid',
         references: {
-          model: 'users',
+          model: 'Users',
           key: 'id', 
         }
       },
       published: {
         type: Sequelize.DATE,
       },
-      published: {
+      updated: {
         type: Sequelize.DATE,
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {

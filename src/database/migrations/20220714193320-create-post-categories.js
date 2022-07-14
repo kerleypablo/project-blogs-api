@@ -17,23 +17,15 @@ module.exports = {
       },
       categoryId: {
         primaryKey: true,
-        type: Sequelize.STRING,
-        field: 'categoryId',
+        type: Sequelize.INTEGER,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
+        field: 'categoryId',
         references: {
-          model: 'categories',
+          model: 'Categories',
           key: 'id',
         }
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   down: async (queryInterface, Sequelize) => {
