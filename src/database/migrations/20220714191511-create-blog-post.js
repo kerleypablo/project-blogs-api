@@ -22,7 +22,7 @@ module.exports = {
         field: 'userid',
         references: {
           model: 'users',
-          key: 'id',
+          key: 'id', 
         }
       },
       published: {
