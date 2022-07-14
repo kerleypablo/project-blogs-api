@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        field: 'userid',
+        field: 'userId',
         references: {
           model: 'Users',
           key: 'id', 
@@ -30,7 +30,7 @@ module.exports = {
       },
       updated: {
         type: Sequelize.DATE,
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
