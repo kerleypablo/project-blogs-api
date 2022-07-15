@@ -6,7 +6,6 @@ const getUserByEmail = async (email) => {
     });
 
     if (!result) return result; 
-
     return result.dataValues;
 };
 
