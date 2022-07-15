@@ -1,13 +1,13 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const { createUser } = require('../service/userService');
+const { createUser, getAll } = require('../service/userService');
 
 const secret = process.env.JWT_SECRET;
 const jwtConfig = {
     expiresIn: '7d',
 };
 
-const UserController = async (req, res) => {
+const create = async (req, res) => {
     const { displayName, password, email, image } = req.body;
     const user = { email, password, displayName, image };
     await createUser(user);
@@ -15,4 +15,10 @@ const UserController = async (req, res) => {
     res.status(201).json({ token });
 };
 
-module.exports = UserController;
+const getAllUser = async (req, res) => {
+    const result = await getAll();
+
+    return res.status(200).json(result);
+};
+
+module.exports = { create, getAllUser };

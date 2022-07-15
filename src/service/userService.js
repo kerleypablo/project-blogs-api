@@ -9,10 +9,19 @@ const getUserByEmail = async (email) => {
     return result.dataValues;
 };
 
+const getAll = async () => {
+    try {
+        const result = await User.findAll({ attributes: { exclude: ['password'] } });
+        return result;
+    } catch (error) {
+        return error;
+    }
+};
+
 const createUser = async (object) => {
     const { email, password, displayName, image } = object;
     const result = await User.create({ email, password, displayName, image });
    return result.dataValues;
 };
 
-module.exports = { getUserByEmail, createUser };
+module.exports = { getUserByEmail, createUser, getAll };
