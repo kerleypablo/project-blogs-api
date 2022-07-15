@@ -9,4 +9,10 @@ const getUserByEmail = async (email) => {
     return result.dataValues;
 };
 
-module.exports = { getUserByEmail };
+const createUser = async (object) => {
+    const { email, password, displayName, image } = object;
+    const result = await User.create({ email, password, displayName, image });
+   return result.dataValues;
+};
+
+module.exports = { getUserByEmail, createUser };
