@@ -18,10 +18,19 @@ const getAll = async () => {
     }
 };
 
+const getById = async (id) => {
+    try {
+        const result = await User.findOne({ attributes: { exclude: ['password'] }, where: { id } });
+        return result;
+    } catch (error) {
+        return error;
+    }
+};
+
 const createUser = async (object) => {
     const { email, password, displayName, image } = object;
     const result = await User.create({ email, password, displayName, image });
    return result.dataValues;
 };
 
-module.exports = { getUserByEmail, createUser, getAll };
+module.exports = { getUserByEmail, createUser, getAll, getById };
