@@ -3,7 +3,7 @@ const { getAllCategories } = require('../service/categoriesService');
 
 const blogPostValidate = (req, res, next) => {
     const { title, content, categoryIds } = req.body;
-    if (title === null) { 
+    if (title === null || content === null) { 
       return res.status(400)
       .json({ message: 'Some required fields are missing' });
     }

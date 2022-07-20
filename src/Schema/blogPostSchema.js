@@ -1,23 +1,28 @@
 const Joi = require('joi');
 
+const empty = 'Some required fields are missing';
 const blogPostSchema = Joi.object({
     title: Joi.string()
     .required()
     .empty()
     .messages({
-        'empty.validate': 'Some required fields are missing',
-        'any.required': 'Some required fields are missing',
+        'string.empty': empty,
+        'any.required': empty,
         'string.min': '"displayName" length must be at least 8 characters long',
     }),
     content: Joi.string()
     .required()
+    .empty()
     .messages({
-        'any.required': 'Some required fields are missing',
+        'string.empty': empty,
+        'any.required': empty,
     }),
     categoryIds: Joi.array()
     .required()
+    .empty()
     .messages({
-        'any.required': 'Some required fields are missing',
+        'string.empty': empty,
+        'any.required': empty,
     }),
 });
 
