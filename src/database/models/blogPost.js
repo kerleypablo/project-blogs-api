@@ -12,7 +12,12 @@ const BlogPost = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     userId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
+      reference: {
+        model: 'Users',
+        key: 'id'
+      },
     },
     published: {
       type: DataTypes.DATE,
@@ -20,7 +25,11 @@ const BlogPost = (sequelize, DataTypes) => {
     updated: {
       type: DataTypes.DATE,
     },
-  });
+  },
+  {
+    timestamps: false,
+  },
+  );
 
   BlogPost.associate = (models) => {
     BlogPost.belongsTo(models.User,{

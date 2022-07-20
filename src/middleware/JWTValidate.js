@@ -13,6 +13,7 @@ const validateJWT = (req, res, next) => {
     } catch (error) {
         return res.status(401).json({ message: 'Expired or invalid token' });
     }
+    req.user = JWT.decode(token, secret).data.email;
     next();
 };
 

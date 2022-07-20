@@ -10,7 +10,6 @@ const loginValidate = async (req, res, next) => {
     if (!checkUser || checkUser.password !== password) {
         return res.status(400).json({ message: 'Invalid fields' });
     }
-
     next();
 };
 module.exports = loginValidate;

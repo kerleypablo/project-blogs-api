@@ -12,7 +12,6 @@ const dataValidation = (req, res, next) => {
 const verifyEmail = async (req, res, next) => {
     const { email } = req.body;
     const result = await getUserByEmail(email);
-    console.log(result);
     if (result) {
       return res.status(409).json({ message: 'User already registered' });
     }
